@@ -1,13 +1,13 @@
 'use strict';
 
-import config from 'config';
 import {createConnection} from "typeorm";
 
-const path = require('path');
+import {routes} from "./routes";
+import {Product} from "./models/Product";
+import {Purchase} from "./models/Purchase";
+
 // tslint:disable-next-line:no-var-requires
 const Hapi = require('@hapi/hapi');
-// tslint:disable-next-line:no-var-requires
-const routes = require('./routes');
 // tslint:disable-next-line:no-var-requires
 const handlebars = require('handlebars');
 // tslint:disable-next-line:no-var-requires
@@ -15,11 +15,6 @@ const htmlUtils = require('./util/htmlUtil');
 
 // tslint:disable-next-line:no-var-requires
 require('source-map-support').install();
-
-// tslint:disable-next-line:no-commented-code
-// const server = Hapi.server({
-//     port: 3000,
-//     host: '10.0.0.68'});
 
 const server = Hapi.server({
     port: 3001,
@@ -34,15 +29,14 @@ const init = async () => {
 
     await Promise.all([
         server.register({
-            plugin: require('@hapi/good'),
-            options
+            plugin: require('@hapi/good')
         }),
         server.register(require('inert')),
         server.register(require('vision'))
     ]);
 
     const defaultContext = {
-        title: 'Artifact Uprising',
+        Title: 'Artifact Uprising',
         standardImports: htmlUtils.standardImports
         // imports: htmlHelpers.getImports,
         // standardPadding: htmlHelpers.standardPadding
@@ -55,7 +49,7 @@ const init = async () => {
             html: handlebars
         },
         context: defaultContext,
-        relativeTo: '',
+        relativeTo: '.',
         path: ['frontend/public/html'],
         layoutPath: 'frontend/public/templates',
         layout: 'default'
@@ -63,21 +57,14 @@ const init = async () => {
 
     console.log('Init cookies');
 
-    await server.register(require('@hapi/cookie'));
-
-    const cookieConfig = config.get('cookie');
-
-    // TODO set isSecure to true when on production
-    server.auth.strategy('session', 'cookie', {
-        cookie: {
-            name: cookieConfig.name,
-            password: cookieConfig.password,
-            isSecure: cookieConfig.isSecure
-        },
-        redirectTo: '/fail'
+    server.state('data', {
+        ttl: 1000 * 60 * 60 * 72, //3 days
+        isSecure: false,
+        isHttpOnly: true,
+        encoding: 'base64json',
+        clearInvalid: true,
+        strictHeader: true
     });
-
-    server.auth.default('session');
 
     console.log('Init routes');
 
@@ -94,7 +81,7 @@ const init = async () => {
             password: "root",
             database: "au",
             // logging: true,
-            entities: [Feature, Purchase]
+            entities: [Product, Purchase]
         });
         await connection.synchronize();
     } catch (error) {
@@ -109,7 +96,7 @@ const init = async () => {
 
 process.on('unhandledRejection', (err) => {
 
-    logger.error(err);
+    console.error(err);
 });
 
 init();

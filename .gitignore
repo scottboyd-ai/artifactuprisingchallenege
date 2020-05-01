@@ -1,0 +1,6 @@
+/node_modules/
+/.idea/
+/dist/
+/**/*.js
+*.map
+/frontend/public/tsx/index.jsx
