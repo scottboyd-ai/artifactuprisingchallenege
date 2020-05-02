@@ -1,4 +1,5 @@
 import {
+    Badge,
     Button,
     ClickAwayListener, createStyles, Drawer,
     IconButton, List, ListItem, ListItemIcon, ListItemText,
@@ -12,6 +13,7 @@ import {Dashboard, ChevronLeft, ShoppingCart} from "@material-ui/icons";
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import * as React from "react";
+import $ from 'jquery';
 
 const drawerWidth = 240;
 
@@ -45,7 +47,11 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         paper: {
             position: 'absolute',
-            backgroundColor: "primary"
+            backgroundColor: "primary",
+            right: '0px',
+            '& a': {
+                width: "100%"
+            }
         },
         hide: {
             display: 'none',
@@ -110,6 +116,17 @@ export default function NavBar(props) {
         setDrawerOpen(false);
     };
 
+    const clearCart = () => {
+        $.ajax({
+            url: '/cart',
+            type: 'DELETE',
+            success: (response) => {
+                props.setCart({});
+                props.setCartCount(0);
+            }
+        })
+    }
+
     return (
         <div className={classes.root}>
                 <AppBar
@@ -141,14 +158,16 @@ export default function NavBar(props) {
                                 <IconButton
                                     aria-label="shopping cart"
                                     onClick={handleMenuClick}
-                                    color={props.cart && props.cart.length ? "primary" : "secondary"}
+                                    color={props.cartCount ? "primary" : "secondary"}
                                 >
-                                    <ShoppingCart fontSize="large"/>
+                                    <Badge badgeContent={props.cartCount}>
+                                        <ShoppingCart fontSize="large"/>
+                                    </Badge>
                                 </IconButton>
                                 {menuOpen ? (
                                     <Paper className={classes.paper}>
                                         <div><Button href="/checkout">Checkout</Button></div>
-                                        <div><Button href="/clear">Clear Cart</Button></div>
+                                        <div><Button onClick={clearCart}>Clear Cart</Button></div>
                                     </Paper>
                                 ) : null}
                             </div>

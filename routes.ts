@@ -8,7 +8,6 @@ export const routes = [
         handler: (request, h) => {
             const sessionId = request.state.data ? request.state.data.sessionId : uuidv4();
             h.state('data', {...request.state.data, sessionId: sessionId});
-            console.log(sessionId);
             return h.view('index.html');
         }
     },
@@ -30,8 +29,14 @@ export const routes = [
         method: 'POST',
         path: '/cart',
         handler: (request, h) => {
-            const cart = request.payload.cart;
-            return h.response('').state('data', {...request.state.data, cart: cart});
+            return h.response('').state('data', {...request.state.data, cart: request.payload.cart});
+        }
+    },
+    {
+        method: 'DELETE',
+        path: '/cart',
+        handler: (request, h) => {
+            return h.response('').state('data', {...request.state.data, cart: {}});
         }
     },
     {
@@ -39,6 +44,22 @@ export const routes = [
         path: '/checkout',
         handler: (request, h) => {
             return h.view('checkout.html');
+        }
+    },
+    {
+        method: 'POST',
+        path: '/purchase',
+        handler: async (request, h) => {
+            const cart = request.state.data.cart;
+            const products: Product[] = await Product.findByIds(Object.keys(request.state.data.cart));
+            products.map((product) => {
+                if (cart[product.id] && product.quantity > 0 && (product.quantity - cart[product.id].quantity >= 0)) {
+                    product.quantity -= cart[product.id].quantity;
+                    product.save();
+                }
+            })
+            h.state('data', {...request.state.data, cart: {}});
+            return '';
         }
     },
     {

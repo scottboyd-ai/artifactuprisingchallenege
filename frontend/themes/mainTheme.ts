@@ -17,9 +17,6 @@ export const mainTheme = createMuiTheme({
                 '&:not(:disabled):hover': {
                     backgroundColor: teal['50']
                 },
-                // '&:not(:disabled)': {
-                //     color: teal['300']
-                // },
                 marginRight: 2,
                 marginLeft: 2
             },
@@ -37,7 +34,8 @@ export const mainTheme = createMuiTheme({
                     color: teal['300']
                 },
                 marginRight: 2,
-                marginLeft: 2
+                marginLeft: 2,
+                marginTop: 4
             }
         },
         MuiContainer: {
