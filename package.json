@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -48,7 +49,12 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
     "@types/hapi": "^18.0.3",
-    "@types/node": "^13.13.4"
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.4",
+    "jest": "^26.0.0",
+    "react-test-renderer": "^16.13.1"
   }
 }

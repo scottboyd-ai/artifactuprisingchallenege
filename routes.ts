@@ -1,5 +1,8 @@
 import {v4 as uuidv4} from 'uuid';
 import {Product} from "./models/Product";
+import {Purchase} from "./models/Purchase";
+import {Category} from "./models/Category";
+import {getManager} from "typeorm";
 
 export const routes = [
     {
@@ -16,6 +19,20 @@ export const routes = [
         path: '/products',
         handler: (request, h) => {
             return Product.find();
+        }
+    },
+    {
+        method: 'GET',
+        path: '/products/{categoryId}',
+        handler: async (request, h) => {
+            let products = null;
+            if (request.params.categoryId) {
+                products = await getManager().createQueryBuilder(Product, 'product').leftJoin(
+                    "product.categories", "category").where('category.id = :categoryId', {categoryId: request.params.categoryId}).getMany();
+            } else {
+                products = await Product.find();
+            }
+            return products;
         }
     },
     {
@@ -52,14 +69,29 @@ export const routes = [
         handler: async (request, h) => {
             const cart = request.state.data.cart;
             const products: Product[] = await Product.findByIds(Object.keys(request.state.data.cart));
+            const purchase: Purchase = new Purchase();
+            purchase.products = [];
+            purchase.total = 0;
             products.map((product) => {
                 if (cart[product.id] && product.quantity > 0 && (product.quantity - cart[product.id].quantity >= 0)) {
                     product.quantity -= cart[product.id].quantity;
                     product.save();
+                    purchase.products.push(product);
+                    purchase.total += +(cart[product.id].quantity * product.price).toFixed(2);
                 }
             })
+            if (purchase.products.length) {
+                purchase.save();
+            }
             h.state('data', {...request.state.data, cart: {}});
             return '';
+        }
+    },
+    {
+        method: 'GET',
+        path: '/categories',
+        handler: (request, h) => {
+            return Category.find();
         }
     },
     {

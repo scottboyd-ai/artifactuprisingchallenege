@@ -1,5 +1,6 @@
 import {BaseModel} from "./BaseModel/BaseModel";
-import {Column, Entity} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany} from "typeorm";
+import {Category} from "./Category";
 
 @Entity()
 export class Product extends BaseModel {
@@ -16,4 +17,7 @@ export class Product extends BaseModel {
     @Column({type: "double"})
     public rating: number;
 
+    @ManyToMany((type) => Category)
+    @JoinTable()
+    public categories: Category[];
 }

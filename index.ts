@@ -5,6 +5,7 @@ import {createConnection} from "typeorm";
 import {routes} from "./routes";
 import {Product} from "./models/Product";
 import {Purchase} from "./models/Purchase";
+import {Category} from "./models/Category";
 
 // tslint:disable-next-line:no-var-requires
 const Hapi = require('@hapi/hapi');
@@ -58,7 +59,8 @@ const init = async () => {
     console.log('Init cookies');
 
     server.state('data', {
-        ttl: 1000 * 60 * 60 * 72, //3 days
+        // ttl: 1000 * 60 * 60 * 72, //3 days
+        ttl: null, // Kill when browser is closed
         isSecure: false,
         isHttpOnly: true,
         encoding: 'base64json',
@@ -81,7 +83,7 @@ const init = async () => {
             password: "root",
             database: "au",
             // logging: true,
-            entities: [Product, Purchase]
+            entities: [Category, Product, Purchase]
         });
         await connection.synchronize();
     } catch (error) {

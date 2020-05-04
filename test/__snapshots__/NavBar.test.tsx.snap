@@ -1,0 +1,564 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter Checkout renders 1`] = `
+<div
+  className="makeStyles-root-137"
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorSecondary makeStyles-appBar-139 mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-141 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+      <h6
+        className="MuiTypography-root makeStyles-title-138 MuiTypography-h6"
+      >
+        Artifact Uprising
+      </h6>
+      <div
+        onClick={[Function]}
+        onTouchEnd={[Function]}
+      >
+        <button
+          aria-label="shopping cart"
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <span
+              className="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+              <span
+                className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-invisible"
+              >
+                0
+              </span>
+            </span>
+          </span>
+          <span
+            className="MuiTouchRipple-root"
+          />
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    className="makeStyles-content-148"
+  >
+    <div
+      className="makeStyles-toolbar-147"
+    />
+    <div
+      className="MuiGrid-root MuiGrid-container"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-6"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-center"
+        >
+          <div
+            className="MuiPaper-root MuiTableContainer-root makeStyles-tableContainer-135 MuiPaper-elevation1 MuiPaper-rounded"
+          >
+            <table
+              aria-label="spanning table"
+              className="MuiTable-root makeStyles-table-136"
+              role={null}
+            >
+              <thead
+                className="MuiTableHead-root"
+                role={null}
+              >
+                <tr
+                  className="MuiTableRow-root MuiTableRow-head"
+                  role={null}
+                >
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignCenter"
+                    colSpan={3}
+                    scope="col"
+                  >
+                    Details
+                  </th>
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+                    scope="col"
+                  >
+                    Price
+                  </th>
+                </tr>
+                <tr
+                  className="MuiTableRow-root MuiTableRow-head"
+                  role={null}
+                >
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head"
+                    scope="col"
+                  >
+                    Desc
+                  </th>
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+                    scope="col"
+                  >
+                    Qty.
+                  </th>
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+                    scope="col"
+                  >
+                    Price
+                  </th>
+                  <th
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-head MuiTableCell-alignRight"
+                    scope="col"
+                  >
+                    Sum
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                className="MuiTableBody-root"
+                role={null}
+              >
+                <tr
+                  className="MuiTableRow-root"
+                  role={null}
+                >
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body"
+                    rowSpan={3}
+                  />
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body"
+                    colSpan={2}
+                  >
+                    Subtotal
+                  </td>
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                  >
+                    $
+                    0.00
+                  </td>
+                </tr>
+                <tr
+                  className="MuiTableRow-root"
+                  role={null}
+                >
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body"
+                  >
+                    Tax
+                  </td>
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                  >
+                    7 %
+                  </td>
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                  >
+                    $
+                    0.00
+                  </td>
+                </tr>
+                <tr
+                  className="MuiTableRow-root"
+                  role={null}
+                >
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body"
+                    colSpan={2}
+                  >
+                    Total
+                  </td>
+                  <td
+                    aria-sort={null}
+                    className="MuiTableCell-root MuiTableCell-body MuiTableCell-alignRight"
+                  >
+                    $
+                    0.00
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-3"
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      >
+        <div
+          className="MuiGrid-root MuiGrid-container MuiGrid-justify-xs-flex-end"
+        >
+          <a
+            aria-disabled={false}
+            className="MuiButtonBase-root MuiButton-root MuiButton-text"
+            href="/"
+            onBlur={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Continue shopping
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </a>
+          <button
+            className="MuiButtonBase-root MuiButton-root MuiButton-text"
+            disabled={false}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onDragLeave={[Function]}
+            onFocus={[Function]}
+            onKeyDown={[Function]}
+            onKeyUp={[Function]}
+            onMouseDown={[Function]}
+            onMouseLeave={[Function]}
+            onMouseUp={[Function]}
+            onTouchEnd={[Function]}
+            onTouchMove={[Function]}
+            onTouchStart={[Function]}
+            tabIndex={0}
+            type="button"
+          >
+            <span
+              className="MuiButton-label"
+            >
+              Buy!
+            </span>
+            <span
+              className="MuiTouchRipple-root"
+            />
+          </button>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-4"
+      />
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Counter Homepage renders 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorSecondary makeStyles-appBar-3 mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-5 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+      <h6
+        className="MuiTypography-root makeStyles-title-2 MuiTypography-h6"
+      >
+        Artifact Uprising
+      </h6>
+      <div
+        onClick={[Function]}
+        onTouchEnd={[Function]}
+      >
+        <button
+          aria-label="shopping cart"
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <span
+              className="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+              <span
+                className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-invisible"
+              >
+                0
+              </span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    className="makeStyles-content-12"
+  >
+    <div
+      className="makeStyles-toolbar-11"
+    />
+    <div
+      className="MuiBox-root MuiBox-root-136"
+    >
+      <div
+        className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2"
+      />
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Counter NavBar renders 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <header
+    className="MuiPaper-root MuiAppBar-root MuiAppBar-positionFixed MuiAppBar-colorSecondary makeStyles-appBar-3 mui-fixed MuiPaper-elevation4"
+  >
+    <div
+      className="MuiToolbar-root MuiToolbar-regular MuiToolbar-gutters"
+    >
+      <button
+        aria-label="open drawer"
+        className="MuiButtonBase-root MuiIconButton-root makeStyles-menuButton-5 MuiIconButton-colorInherit MuiIconButton-edgeStart"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type="button"
+      >
+        <span
+          className="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"
+            />
+          </svg>
+        </span>
+      </button>
+      <h6
+        className="MuiTypography-root makeStyles-title-2 MuiTypography-h6"
+      >
+        Artifact Uprising
+      </h6>
+      <div
+        onClick={[Function]}
+        onTouchEnd={[Function]}
+      >
+        <button
+          aria-label="shopping cart"
+          className="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorSecondary"
+          disabled={false}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="MuiIconButton-label"
+          >
+            <span
+              className="MuiBadge-root"
+            >
+              <svg
+                aria-hidden="true"
+                className="MuiSvgIcon-root MuiSvgIcon-fontSizeLarge"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+              <span
+                className="MuiBadge-badge MuiBadge-anchorOriginTopRightRectangle MuiBadge-invisible"
+              />
+            </span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main
+    className="makeStyles-content-12"
+  >
+    <div
+      className="makeStyles-toolbar-11"
+    />
+  </main>
+</div>
+`;

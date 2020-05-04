@@ -1,7 +1,7 @@
 import {
     Badge,
     Button,
-    ClickAwayListener, createStyles, Drawer,
+    ClickAwayListener, Collapse, createStyles, Drawer,
     IconButton, List, ListItem, ListItemIcon, ListItemText,
     makeStyles, Paper, Theme,
     Toolbar,
@@ -13,7 +13,8 @@ import {Dashboard, ChevronLeft, ShoppingCart} from "@material-ui/icons";
 import MenuIcon from '@material-ui/icons/Menu';
 import clsx from 'clsx';
 import * as React from "react";
-import $ from 'jquery';
+import {clearCart} from "../../services/CartService";
+import { getCategories } from "../../services/RequestService";
 
 const drawerWidth = 240;
 
@@ -90,15 +91,19 @@ const useStyles = makeStyles((theme: Theme) =>
             flexGrow: 1,
             padding: theme.spacing(3),
         },
+        nested: {
+            paddingLeft: theme.spacing(4),
+        },
     }),
 );
 
 export default function NavBar(props) {
     const classes = useStyles({});
 
-    const [menuOpen, setMenuOpen] = React.useState(false);
+    const [init, setInit] = React.useState(true);
     const [drawerOpen, setDrawerOpen] = React.useState(false);
-
+    const [menuOpen, setMenuOpen] = React.useState(false);
+    const [categories, setCategories] = React.useState([]);
 
     const handleMenuClick = () => {
         setMenuOpen((prev) => !prev);
@@ -116,15 +121,19 @@ export default function NavBar(props) {
         setDrawerOpen(false);
     };
 
-    const clearCart = () => {
-        $.ajax({
-            url: '/cart',
-            type: 'DELETE',
-            success: (response) => {
-                props.setCart({});
-                props.setCartCount(0);
-            }
+    const categoriesToElements = () => {
+        return categories.map((category) => {
+            return (
+                <ListItem key={category.id} button className={classes.nested} onClick={() => {props.filterProducts(category.id, props.setProducts)}}>
+                    <ListItemText primary={category.name} />
+                </ListItem>
+            );
         })
+    }
+
+    if (init) {
+        setInit(false);
+        getCategories(setCategories);
     }
 
     return (
@@ -167,7 +176,7 @@ export default function NavBar(props) {
                                 {menuOpen ? (
                                     <Paper className={classes.paper}>
                                         <div><Button href="/checkout">Checkout</Button></div>
-                                        <div><Button onClick={clearCart}>Clear Cart</Button></div>
+                                        <div><Button onClick={() => clearCart(props.setCart, props.setCartCount, setMenuOpen)}>Clear Cart</Button></div>
                                     </Paper>
                                 ) : null}
                             </div>
@@ -192,13 +201,17 @@ export default function NavBar(props) {
                             <ChevronLeft/>
                         </IconButton>
                     </div>
-                    <List>
-                        <ListItem key="Categories">
-                            <ListItemIcon>
-                                <Dashboard/>
-                            </ListItemIcon>
-                            <ListItemText primary="Categories" />
+                    <ListItem>
+                        <ListItemIcon>
+                            <Dashboard />
+                        </ListItemIcon>
+                        <ListItemText primary="Categories" />
+                    </ListItem>
+                    <List component="div" disablePadding>
+                        <ListItem key="all" button className={classes.nested} onClick={() => {props.filterProducts(null, props.setProducts)}}>
+                            <ListItemText primary="All" />
                         </ListItem>
+                        {categoriesToElements()}
                     </List>
                 </Drawer>
                 <main className={classes.content}>

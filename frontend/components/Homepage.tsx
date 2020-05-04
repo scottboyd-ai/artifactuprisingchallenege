@@ -1,12 +1,11 @@
 import React from "react";
-import $ from 'jquery';
+import {filterProducts, getCart, getProducts, saveCart} from "../../services/RequestService";
 import {Box, Button, Card, CardActions, CardContent, Grid, ThemeProvider, Typography} from "@material-ui/core";
-import NavBar from "./NavBar";
-import {mainTheme} from "../themes/mainTheme";
 import {Rating} from "@material-ui/lab";
-import {getCart, getProducts} from "../../services/RequestService";
+import {mainTheme} from "../themes/mainTheme";
+import NavBar from "./NavBar";
 
-function App() {
+export function Homepage() {
     const [init, setInit] = React.useState(true);
     const [products, setProducts] = React.useState([]);
     const [cart, setCart] = React.useState({});
@@ -96,16 +95,6 @@ function App() {
         return (!cartCount || (!cart[productId] || (cart[productId] && cart[productId].quantity <= 0)));
     }
 
-    const saveCart = (newCart) => {
-        $.ajax({
-            url: '/cart',
-            type: 'POST',
-            dataType: 'json',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify({cart: newCart})
-        })
-    }
-
     const productsToItems = () => {
         if (products && products.length) {
             return products.map((product, i) => {
@@ -119,7 +108,7 @@ function App() {
                                 <Typography>
                                     ${product.price}
                                 </Typography>
-                                <Rating value={product.rating} precision={0.01} readOnly size="small"/>
+                                <Rating value={product.rating} precision={0.1} readOnly size="small"/>
                                 <Typography>
                                     {product.rating} / 5
                                 </Typography>
@@ -149,7 +138,7 @@ function App() {
 
     return (
         <ThemeProvider theme={mainTheme}>
-            <NavBar setCart={setCart} cartCount={cartCount} setCartCount={setCartCount}>
+            <NavBar setCart={setCart} cartCount={cartCount} setCartCount={setCartCount} filterProducts={filterProducts} setProducts={setProducts}>
                 <Box>
                     <Grid container spacing={2}>
                         {productsToItems()}
@@ -159,5 +148,3 @@ function App() {
         </ThemeProvider>
     );
 }
-
-export default App;

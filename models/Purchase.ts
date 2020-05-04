@@ -5,7 +5,7 @@ import {Product} from "./Product";
 @Entity()
 export class Purchase extends BaseModel {
 
-    @Column()
+    @Column({type: "double"})
     public total: number;
 
     @ManyToMany((type) => Product)
