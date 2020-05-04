@@ -17,7 +17,7 @@ const htmlUtils = require('./util/htmlUtil');
 // tslint:disable-next-line:no-var-requires
 require('source-map-support').install();
 
-const server = Hapi.server({
+export const server = Hapi.server({
     port: 3001,
     host: '0.0.0.0'
 });

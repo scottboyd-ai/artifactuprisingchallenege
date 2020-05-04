@@ -4,7 +4,7 @@ import NavBar from "../frontend/components/NavBar";
 import {Checkout} from "../frontend/components/Checkout";
 import {Homepage} from "../frontend/components/Homepage";
 
-describe('Counter', () => {
+describe('React', () => {
     test('NavBar renders', () => {
         const component = renderer.create(<NavBar/>);
         let tree = component.toJSON();
