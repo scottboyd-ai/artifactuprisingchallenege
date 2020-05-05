@@ -8,7 +8,7 @@ export const getCart = (cartSetter?, cartCountSetter?) => {
             if (cartSetter) {
                 cartSetter(response);
             }
-            if (cartCountSetter) {
+            if (cartCountSetter && response) {
                 let cartCount = 0;
                 for (const productId of Object.keys(response)) {
                     const countModifier = response[productId] ? response[productId].quantity : 0
