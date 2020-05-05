@@ -5,8 +5,6 @@ RUN npm install
 RUN npx tsc
 RUN npx webpack
 EXPOSE 3001
-CMD [ "node", "index.js" ]
 
-FROM mysql
-ENV MYSQL_DATABASE au
-COPY ./sql /docker-entrypoint-initdb.d/
+COPY wait-for-it.sh wait-for-it.sh
+RUN chmod +x wait-for-it.sh

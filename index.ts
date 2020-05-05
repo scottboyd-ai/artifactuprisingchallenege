@@ -77,15 +77,15 @@ const init = async () => {
     try {
         const connection = await createConnection({
             type: "mysql",
-            host: "localhost",
-            port: 3308,
+            host: "mysql",
+            port: 3306,
             username: "root",
             password: "root",
             database: "au",
             // logging: true,
             entities: [Category, Product, Purchase]
         });
-        await connection.synchronize();
+        // await connection.synchronize();
     } catch (error) {
         console.error(error);
     }

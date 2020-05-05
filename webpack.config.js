@@ -75,7 +75,7 @@ const config = {
             name: "vendor"
         }
     },
-    watch: true,
+    watch: false,
     watchOptions: {
         aggregateTimeout: 1000,
         poll: 1000
